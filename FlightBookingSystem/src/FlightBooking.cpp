@@ -1,0 +1,44 @@
+#include "FlightBooking.h"
+
+FlightBooking::FlightBooking(int id, int capacity, int reserved)
+: id(id), capacity(capacity > 0 ? capacity : 0), reserved(reserved > 0 ? reserved : 0)
+{
+    if((100 * this -> reserved) > (105* this->capacity))
+    {
+        this->reserved = (105* this->capacity)/100;
+    }
+}
+
+void FlightBooking::printStatus() const 
+{
+    if(id != 0)
+    {
+        std::cout << "Flight "<< id << ": "<< reserved << "/" << capacity
+                  <<" (" << (100* reserved) / capacity << "% ) seats reserved" << std::endl;
+    }
+
+}
+
+bool FlightBooking::reserveSeats(int seats)
+{
+    if(seats <= 0 || (100 * (reserved + seats)) > (105 * capacity))
+    {
+        return false;
+    }
+    reserved += seats;
+    return true;
+
+
+}
+
+
+bool FlightBooking::cancelSeats(int seats)
+{
+    if(seats <= 0 || reserved < seats)
+        return false ;
+    reserved -= seats;
+
+    return true;
+    
+    
+}
