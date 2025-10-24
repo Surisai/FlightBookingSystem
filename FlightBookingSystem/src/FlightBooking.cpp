@@ -1,4 +1,4 @@
-#include "FlightBooking.h"
+#include "../include/FlightBooking.h"
 
 FlightBooking::FlightBooking(int id ,int capacity,int reserved)
 : id(id), capacity(capacity), reserved(reserved) {}

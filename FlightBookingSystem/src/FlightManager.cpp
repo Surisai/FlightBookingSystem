@@ -1,4 +1,5 @@
-#include "FlightManager.h"
+#include "../include/FlightManager.h"
+#include "../include/FlightBooking.h"
 
 #include <iostream>
 #include <iomanip>

@@ -7,9 +7,13 @@ class FlightInterface {
     private:
         FlightManager manager;
 
-        void showAirplaneGraphic() const;
-        void displayMenu() const;
+      
     public:
-        void run();///main loop 
-};
+        FlightInterface();
+        ~FlightInterface();
+
+        void run(); // Main menu loop
+        void displayMenu() const;
+        void handleChoice(int choice);
+    };
 #endif
