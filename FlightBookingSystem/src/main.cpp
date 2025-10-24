@@ -52,5 +52,8 @@ int main() {
                 std::cout << "Invalid option. Try again.\n";
         }
     } while (choice != 6);
+
+    FlightInterface app;
+    app.run();
     return 0;
 }
