@@ -1,0 +1,68 @@
+//#include "FlightBooking.h"
+#include <vector>
+#include <memory>
+#include <sstream>// define unique 
+#include <iomanip>///
+#include <iostream>
+
+
+const int MAX_BOOKING = 10;
+int main() {
+
+///Sample try version
+    // std::vector<std::unique_ptr<iBooking>> bookings;
+    // bookings.push_back(std::make_unique<FlightBooking>(1,400,500));
+    // bookings.push_back(std::make_unique<FlightBooking>(2,250,900));
+
+    // for(const auto& b : bookings)
+    // {
+    //     b->printStatus();
+    // }
+
+    // bookings[0]->reserveSeats(30);
+    // bookings[1]->cancelSeats(50);
+
+    // std::cout << "\nAfter updates: \n";
+    // for(const auto& b : bookings)
+    // {
+    //     b->printStatus();
+    // }
+
+
+    std::vector<FlightBooking> bookings (MAX_BOOKING);
+    std::string command;
+
+    while(true)
+    {
+        bool any_flight = false;
+        for(auto &b : bookings)
+        {
+            if(b.isValid()){
+                b.printStatus();
+                any_flight = true;
+            }
+        }
+        if(!any_flight)
+            std::cout << "No Flight in the system. \n";
+        
+            std::cout << "\nWhat would you like to do ? (create/add/cancel/show/quit) : ";
+            std::getline(std::cin, command);
+
+            if(command == "quit") break;
+
+            std::stringstream ss(command);
+            std::string action;
+            ss >> action;
+
+            if(action == "create")
+            {
+                int id,cap;
+                ss>>id >> cap;
+
+            }
+
+
+
+    }
+    return 0;
+}
